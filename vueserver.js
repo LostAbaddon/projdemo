@@ -6,7 +6,7 @@ const KOA = require('koa');
 
 const PlainTextTypes = ['html', 'js', 'json', 'css', 'txt', 'xml'];
 
-const init = (port, pathList) => {
+const init = (pathList) => {
 	const VueIndexPages = new Map();
 
 	var pathMap = [];
@@ -74,8 +74,8 @@ const init = (port, pathList) => {
 		await next();
 	});
 	let server = require('http').createServer(app.callback());
-	server.listen(port);
-	console.log('Vue-Server on ' + port);
+	console.log('Vue-Server Ready');
+	return server;
 };
 
 module.exports = init;

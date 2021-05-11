@@ -806,9 +806,7 @@ const init = async () => {
 	await prepareData();
 
 	var cfg = require('./config.json');
-	cfg.ports = cfg.ports || {};
-	cfg.ports.socket = cfg.ports.socket || 3000;
-	cfg.ports.web = cfg.ports.web || 80;
+	cfg.port = cfg.port || 3000;
 	cfg.site = cfg.site || {};
 
 	SocketConfig.cors = {
@@ -816,7 +814,8 @@ const init = async () => {
 		methods: ["GET", "POST"]
 	};
 
-	io = Socket(SocketConfig);
+	var server = VueServer(cfg.site);
+	io = Socket(server, SocketConfig);
 
 	io.on("connection", socket => {
 		console.log('Node-SocketIO connected... (' + socket.id + ')');
@@ -828,9 +827,8 @@ const init = async () => {
 		RegisterSessionService(socket);
 	});
 
-	io.listen(cfg.ports.socket);
-	console.log('Node-SocketIO ready...  (port: ' + cfg.ports.socket + ')');
+	console.log('Node-SocketIO Ready');
 
-	VueServer(cfg.ports.web, cfg.site);
+	server.listen(cfg.port);
 };
 init();

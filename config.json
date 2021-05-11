@@ -3,9 +3,6 @@
 		"/demo/taxsystem": "/front/",
 		"/demo/taxsystem/fa": "/common/fa/"
 	},
-	"ports": {
-		"web": 80,
-		"socket": 3000
-	},
+	"port": 80,
 	"cors": []
 }
