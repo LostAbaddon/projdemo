@@ -1,0 +1,11 @@
+{
+	"site": {
+		"/demo/taxsystem": "/front/",
+		"/demo/taxsystem/fa": "/common/fa/"
+	},
+	"ports": {
+		"web": 8000,
+		"socket": 3000
+	},
+	"cors": []
+}

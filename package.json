@@ -1,0 +1,11 @@
+{
+	"name": "TaxSystem",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"FileDB": "github:LostAbaddon/FileDB",
+		"koa": "^2.13.1",
+		"mime-types": "^2.1.30",
+		"socket.io": "^4.0.1"
+	}
+}
