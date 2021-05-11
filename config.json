@@ -4,7 +4,7 @@
 		"/demo/taxsystem/fa": "/common/fa/"
 	},
 	"ports": {
-		"web": 8000,
+		"web": 80,
 		"socket": 3000
 	},
 	"cors": []

@@ -19,6 +19,7 @@ const init = (port, pathList) => {
 	var app = new KOA();
 	app.use(async (ctx, next) => {
 		var url = ctx.request.url;
+		console.log('[REQUEST]: ' + url);
 		url = URL.parse(url).pathname;
 		var index = -1;
 		pathMap.some((item, i) => {
@@ -27,11 +28,13 @@ const init = (port, pathList) => {
 			index = i;
 			return true;
 		});
+		console.log('    [MATCH]: ' + index);
 		if (index < 0) return await next();
 
 		var type = url.match(/\.(\w+)$/);
 		if (!type) type = 'vueindex';
 		else type = type[1].toLowerCase();
+		console.log('    [TYPE]: ' + type);
 
 		var siteFolder = pathMap[index];
 		if (type === 'vueindex') {
